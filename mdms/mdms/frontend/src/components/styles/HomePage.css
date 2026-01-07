@@ -1,0 +1,270 @@
+/* ================= CONTAINER ================= */
+.home-container {
+  position: relative;
+  min-height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ================= CONTENT ================= */
+.home-content {
+  padding: 20px 32px;
+  color: #e5e7eb;
+  min-height: 100vh;
+}
+
+/* ================= SNAPSHOT BAR ================= */
+.snapshot-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 26px;
+  margin: 20px auto 28px;
+  width: fit-content;
+
+  background: rgba(2, 6, 23, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* Snapshot Item */
+.snapshot-item {
+  min-width: 110px;
+  text-align: center;
+  padding: 10px 14px;
+  border-radius: 12px;
+}
+
+.snapshot-item .label {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.snapshot-item .value {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* ================= GRID ================= */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+/* ================= STATS ================= */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.stat-card {
+  background: rgba(2, 6, 23, 0.45);
+  border-radius: 14px;
+  padding: 12px 14px;
+  border-left: 4px solid transparent;
+}
+
+.stat-card p {
+  font-size: 14px;
+}
+
+.stat-card h2 {
+  font-size: 28px;
+}
+
+.stat-card.total {
+  border-color: #3b82f6;
+}
+.stat-card.resolved {
+  border-color: #22c55e;
+}
+.stat-card.working {
+  border-color: #f59e0b;
+}
+.stat-card.open {
+  border-color: #ef4444;
+}
+
+/* ================= PIE ================= */
+.pie-card {
+  background: rgba(2, 6, 23, 0.45);
+  border-radius: 14px;
+  padding: 18px;
+  width: 100%;
+}
+
+.pie-box {
+  width: 100%;
+  height: 300px;
+}
+
+/* ================= SLA ================= */
+.sla-card {
+  background: linear-gradient(
+    135deg,
+    rgba(2, 6, 23, 0.6),
+    rgba(15, 23, 42, 0.6)
+  );
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.sla-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+.green {
+  color: #22c55e;
+}
+.amber {
+  color: #f59e0b;
+}
+.red {
+  color: #ef4444;
+}
+
+/* ================= CATEGORY ================= */
+.category-card {
+  background: rgba(2, 6, 23, 0.45);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.category-card ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.category-card li {
+  padding: 5px;
+}
+
+/* ================= ACTIVITY ================= */
+.activity-card {
+  background: rgba(2, 6, 23, 0.45);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.activity-item {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ================= RESPONSIVE (AUTHORITATIVE) ================= */
+
+/* Prevent overflow globally */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* -------- TABLETS & BELOW (≤1024px) -------- */
+@media (max-width: 1024px) {
+  /* Always stack main layout */
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stats cards behave predictably */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Pie card must be constrained */
+  .pie-card {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .pie-box {
+    height: 280px;
+    width: 100%;
+  }
+}
+
+/* -------- PHONES (≤768px) -------- */
+@media (max-width: 768px) {
+  .home-content {
+    padding: 16px;
+  }
+
+  /* Stats always single column */
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Snapshot bar must stretch */
+  .snapshot-bar {
+    width: 100%;
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .snapshot-item {
+    min-width: 90px;
+  }
+
+  /* Pie card tighter */
+  .pie-card {
+    max-width: 360px;
+  }
+
+  .pie-box {
+    height: 240px;
+  }
+}
+
+/* -------- SMALL PHONES (≤480px) -------- */
+@media (max-width: 480px) {
+  .snapshot-item {
+    min-width: 80px;
+    padding: 8px 10px;
+  }
+
+  .stat-card {
+    padding: 10px 12px;
+  }
+
+  .pie-card {
+    max-width: 320px;
+  }
+
+  .pie-box {
+    height: 220px;
+  }
+}
+
+/* -------- GALAXY Z FOLD / ULTRA SMALL (≤400px) -------- */
+@media (max-width: 400px) {
+  .home-content {
+    padding: 12px;
+  }
+
+  .snapshot-bar {
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .pie-card {
+    max-width: 100%;
+  }
+
+  .pie-box {
+    height: 210px;
+  }
+}

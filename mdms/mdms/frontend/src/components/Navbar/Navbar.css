@@ -1,0 +1,254 @@
+/* =====================
+   3D GOVERNMENT NAVBAR
+===================== */
+.navbar {
+  height: 72px;
+  background: linear-gradient(145deg, #0f172a, #020617);
+  position: sticky;
+  top: 0;
+  color: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  font-family: "Inter", system-ui, sans-serif;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.4),
+    0 5px 15px rgba(0, 0, 0, 0.2);
+  transform: translateZ(50px);
+  z-index: 1000;
+  transition: all 0.5s ease;
+  backdrop-filter: blur(15px);
+}
+
+/* Scroll effect */
+.navbar.scrolled {
+  height: 64px;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* LEFT SIDE */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.logo {
+  width: 50px;
+  height: 42px;
+  background: linear-gradient(135deg, #0bbfad, #0891b2);
+  color: white;
+  font-weight: 800;
+  font-size: 16px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-text {
+  font-size: 18px;
+  font-weight: 700;
+  color: #e2e8f0;
+  padding-left: 12px;
+}
+
+/* DESKTOP NAV LINKS */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-right a {
+  font-size: 15px;
+  font-weight: 500;
+  color: #cbd5e1;
+  padding: 8px 12px;
+  text-decoration: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  position: relative;
+}
+
+.nav-right a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.nav-right a.active::after {
+  content: "";
+  width: 80%;
+  height: 3px;
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #38bdf8, #0bbfad);
+}
+
+/* LOGOUT BUTTON */
+.logout-btn {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  border: none;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* HAMBURGER ICON */
+.hamburger {
+  display: none;
+  font-size: 26px;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  color: #ffffff;
+  justify-content: center;
+  align-items: center;
+}
+
+/* =========================================================
+   MOBILE ONLY (<= 768px)
+========================================================= */
+@media (max-width: 768px) {
+  .navbar {
+    height: 64px;
+    padding: 0 20px;
+  }
+
+  .brand-text {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-right {
+    position: fixed;
+    top: 64px;
+    right: -100%;
+    width: 270px;
+    height: calc(100vh - 64px);
+    background: #0f172a;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    transition: right 0.45s ease;
+    overflow-y: auto;
+    z-index: 999;
+    box-shadow: -15px 0 40px rgba(0, 0, 0, 0.5);
+  }
+
+  .nav-right.open {
+    right: 0;
+  }
+
+  .nav-right a {
+    width: 100%;
+    padding: 18px 22px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 16px;
+    background: transparent;
+  }
+
+  .logout-btn {
+    margin: 20px auto;
+    width: calc(100% - 44px);
+    padding: 14px;
+  }
+}
+
+/* =========================================================
+   TABLET FIX (769px – 1024px)
+   SHOW FULL BRAND NAME + KEEP NAVBAR IN ONE ROW
+========================================================= */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .navbar {
+    padding: 0 18px !important;
+    height: 70px !important;
+    flex-wrap: nowrap !important;
+    gap: 12px !important;
+  }
+
+  /* Allow brand text to expand */
+  .nav-left {
+    flex-shrink: 0 !important;
+    max-width: 45% !important;
+  }
+
+  .brand-text {
+    font-size: 16px !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+  }
+
+  /* Tighten nav-right spacing */
+  .nav-right {
+    flex: 1 !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    gap: 10px !important;
+  }
+
+  .nav-right a {
+    padding: 6px 8px !important;
+    font-size: 13px !important;
+    white-space: nowrap !important;
+  }
+
+  /* Smaller logout button */
+  .logout-btn {
+    padding: 8px 14px !important;
+    font-size: 13px !important;
+    white-space: nowrap !important;
+  }
+
+  /* Hide hamburger */
+  .hamburger {
+    display: none !important;
+  }
+}
+
+
+
+/* =========================================================
+   EXTRA SMALL DEVICES (<400px)
+========================================================= */
+@media (max-width: 400px) {
+  .navbar {
+    padding: 0 14px;
+    height: 58px;
+  }
+
+  .logo {
+    width: 36px;
+    height: 32px;
+    font-size: 13px;
+  }
+
+  .hamburger {
+    width: 38px;
+    height: 38px;
+  }
+
+  .nav-right {
+    width: 220px;
+  }
+
+  .nav-right a {
+    padding: 14px 20px;
+    font-size: 15px;
+  }
+}

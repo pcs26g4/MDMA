@@ -1,0 +1,36 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  background: linear-gradient(
+    rgb(68, 160, 210),
+    rgb(148, 188, 213)
+  ) !important;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* App layout */
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+/* Navbar */
+.navbar {
+  height: 64px;
+  flex-shrink: 0;
+}
+
+/* Main content area */
+.content {
+  flex: 1;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+}

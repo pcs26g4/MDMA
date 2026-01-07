@@ -1,0 +1,394 @@
+/* ===============================
+   ROOT THEME
+================================ */
+:root {
+  --bg-dark: #020617;
+  --glass-bg: rgba(15, 23, 42, 0.9);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --accent: #38bdf8;
+  --accent-2: #6366f1;
+  --text-main: #f8fafc;
+  --text-muted: #cbd5f5;
+}
+
+/* ===============================
+   PAGE CONTAINER
+================================ */
+/* ===============================
+   PAGE CONTAINER (NO PAGE SCROLL)
+================================ */
+.ticket-log {
+  height: 100%;
+  padding: 24px 40px;
+  color: var(--text-main);
+  font-family: "Inter", system-ui, sans-serif;
+  overflow: hidden;
+}
+
+
+/* ===============================
+   TITLE
+================================ */
+.ticket-title {
+  font-size: 30px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: 0.4px;
+  color: #ffffff;
+}
+
+/* ===============================
+   FILTER BAR
+================================ */
+.filter-bar {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  padding: 20px;
+  margin-bottom: 28px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-bar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.45);
+}
+
+/* ===============================
+   FILTER GROUP
+================================ */
+.filter-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 200px;
+}
+
+.filter-label {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--text-muted);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+/* ===============================
+   FILTER INPUTS (SELECT + DATE)
+================================ */
+.filter-bar select,
+.filter-bar input[type="date"] {
+  padding: 14px 18px;
+  min-height: 48px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(2, 6, 23, 0.95);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  outline: none;
+  cursor: pointer;
+
+  transition: border-color 0.25s ease, box-shadow 0.25s ease,
+    transform 0.2s ease, background 0.25s ease;
+}
+
+/* Hover */
+.filter-bar select:hover,
+.filter-bar input[type="date"]:hover {
+  border-color: var(--accent);
+  background: rgba(2, 6, 23, 1);
+  transform: translateY(-1px);
+}
+
+/* Focus */
+.filter-bar select:focus,
+.filter-bar input[type="date"]:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.45),
+    0 8px 20px rgba(56, 189, 248, 0.35);
+}
+
+/* ===============================
+   SELECT DROPDOWN ARROW
+================================ */
+.filter-bar select {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #ffffff 50%),
+    linear-gradient(135deg, #ffffff 50%, transparent 50%);
+  background-position: calc(100% - 18px) 50%, calc(100% - 12px) 50%;
+  background-size: 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 42px;
+}
+
+/* ===============================
+   DATE ICON COLOR
+================================ */
+.filter-bar input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) sepia(1) saturate(5) hue-rotate(185deg);
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* ===============================
+   TABLE WRAPPER
+================================ */
+.table-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 22px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  height: auto;
+  max-height: none;
+  overflow: visible;
+}
+
+/* ===============================
+   AUTO SCROLL ONLY WHEN NEEDED
+================================ */
+.table-wrapper:has(tbody tr:nth-child(7)) {
+  max-height: calc(100vh - 320px);
+  overflow-y: auto;
+}
+
+/* ===============================
+   TABLE
+================================ */
+.ticket-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ticket-table thead {
+  background: rgba(30, 41, 59, 0.95);
+}
+
+.ticket-table th {
+  padding: 18px 20px;
+  font-size: 13px;
+  font-weight: 800;
+  color: #e0e7ff;
+  text-transform: uppercase;
+}
+
+.ticket-table td {
+  padding: 18px 20px;
+  font-size: 14px;
+  color: #f8fafc;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ===============================
+   PREVIEW IMAGE
+================================ */
+.preview-img {
+  width: 120px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+}
+
+/* ===============================
+   PAGINATION (MATCH FILTER STYLE)
+================================ */
+.pagination {
+  margin-top: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pagination button {
+  min-width: 48px;
+  height: 48px;
+  padding: 0 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(2, 6, 23, 0.95);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+
+  transition: border-color 0.25s ease, box-shadow 0.25s ease,
+    transform 0.2s ease, background 0.25s ease;
+}
+
+/* Hover */
+.pagination button:hover:not(:disabled):not(.active) {
+  border-color: var(--accent);
+  background: rgba(2, 6, 23, 1);
+  transform: translateY(-1px);
+}
+
+/* Focus */
+.pagination button:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.45),
+    0 8px 20px rgba(56, 189, 248, 0.35);
+}
+
+/* Active */
+.pagination button.active {
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  color: #020617;
+  border: none;
+  box-shadow: 0 8px 18px rgba(56, 189, 248, 0.45);
+  cursor: default;
+}
+
+/* Disabled */
+.pagination button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ===============================
+   MOBILE
+================================ */
+@media (max-width: 768px) {
+  .ticket-log {
+    padding: 18px 14px;
+  }
+
+  .ticket-title {
+    font-size: 24px;
+  }
+
+  .filter-group {
+    min-width: 100%;
+  }
+}
+
+/* ==================================================
+   RESPONSIVE FIXES – ALL DEVICES
+================================================== */
+
+/* ---------- LARGE TABLETS (≤1024px) ---------- */
+@media (max-width: 1024px) {
+  .ticket-log {
+    padding: 28px 24px;
+  }
+
+  .filter-bar {
+    gap: 14px;
+  }
+
+  .filter-group {
+    min-width: 180px;
+  }
+}
+
+/* ---------- TABLETS & SMALL LAPTOPS (≤900px) ---------- */
+@media (max-width: 900px) {
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-group {
+    width: 100%;
+  }
+
+  .filter-bar select,
+  .filter-bar input[type="date"] {
+    width: 100%;
+  }
+}
+
+/* ---------- PHONES (≤768px) ---------- */
+@media (max-width: 768px) {
+  .ticket-log {
+    padding: 16px 12px;
+  }
+
+  .ticket-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  /* Make table scrollable safely */
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ticket-table {
+    min-width: 720px; /* prevents column squeeze */
+  }
+
+  /* Reduce cell padding */
+  .ticket-table th,
+  .ticket-table td {
+    padding: 14px 12px;
+    font-size: 13px;
+  }
+
+  .preview-img {
+    width: 100px;
+    height: 64px;
+  }
+
+  /* Pagination spacing */
+  .pagination {
+    gap: 8px;
+  }
+}
+
+/* ---------- SMALL PHONES (≤480px) ---------- */
+@media (max-width: 480px) {
+  .ticket-title {
+    font-size: 20px;
+  }
+
+  .filter-bar {
+    padding: 14px;
+  }
+
+  .filter-label {
+    font-size: 11px;
+  }
+
+  .filter-bar select,
+  .filter-bar input[type="date"] {
+    min-height: 44px;
+    font-size: 14px;
+  }
+
+  .pagination button {
+    min-width: 44px;
+    height: 44px;
+    font-size: 14px;
+    padding: 0 14px;
+  }
+}
+
+/* ---------- GALAXY FOLD / ULTRA SMALL (≤360px) ---------- */
+@media (max-width: 360px) {
+  .ticket-title {
+    font-size: 18px;
+  }
+
+  .ticket-table {
+    min-width: 680px;
+  }
+
+  .pagination {
+    gap: 6px;
+  }
+}
+

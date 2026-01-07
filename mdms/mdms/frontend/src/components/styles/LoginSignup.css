@@ -1,0 +1,132 @@
+/* Page background */
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: #f3f4f6;
+}
+
+/* Center card */
+.container {
+  width: 380px;
+  background: #ffffff;
+  padding: 32px 36px;
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Header */
+.head {
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.header {
+  font-size: 26px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.underline {
+  width: 48px;
+  height: 4px;
+  background: #2563eb;
+  margin: 10px auto 0;
+  border-radius: 6px;
+}
+
+/* Input box */
+.input {
+  display: flex;
+  align-items: center;
+  background: #f9fafb;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.input:focus-within {
+  border-color: #2563eb;
+  background: #ffffff;
+}
+
+/* Input field */
+.text {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+  color: #111827;
+}
+
+/* Error text */
+.error {
+  color: #dc2626;
+  font-size: 13px;
+  margin: 2px 0 12px 6px;
+}
+
+/* Forget password */
+.forget-password {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 18px;
+}
+
+.forget-password span {
+  color: #2563eb;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* Button container */
+.submit-container {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+/* Buttons */
+.submit {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit:hover {
+  background: #1e40af;
+}
+
+/* Disabled style */
+.gray {
+  background: #e5e7eb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Full width action button */
+.submit.full {
+  width: 100%;
+  margin-top: 6px;
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+  .container {
+    width: 90%;
+    padding: 26px;
+  }
+}

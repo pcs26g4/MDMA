@@ -1,0 +1,27 @@
+.map-section {
+  padding: 16px;
+}
+
+.map-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.map-shell {
+  height: calc(100vh - 64px - 80px);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.map,
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .map-shell {
+    height: 60vh;
+  }
+}

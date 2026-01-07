@@ -1,0 +1,131 @@
+/* ===============================
+   CONTAINER
+=============================== */
+.ticket-log {
+  width: 100%;
+  padding: 24px 32px;
+  perspective: 1200px; /* Enables 3D depth */
+  color: #e5e7eb;
+}
+
+/* ===============================
+   TITLE
+=============================== */
+.ticket-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #f8fafc;
+  letter-spacing: 0.4px;
+}
+
+/* ===============================
+   FILTER BAR (3D CARD)
+=============================== */
+.filter-bar {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+
+  padding: 18px 22px;
+  border-radius: 18px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(15, 23, 42, 0.9),
+    rgba(2, 6, 23, 0.95)
+  );
+
+  transform-style: preserve-3d;
+
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6),
+    inset 0 2px 0 rgba(255, 255, 255, 0.08), inset 0 -2px 0 rgba(0, 0, 0, 0.6);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ===============================
+   INPUTS – RAISED 3D ELEMENTS
+=============================== */
+.filter-bar select,
+.filter-bar input[type="date"] {
+  min-width: 180px;
+  padding: 12px 16px;
+
+  background: linear-gradient(145deg, #0f172a, #020617);
+
+  color: #f9fafb;
+  font-size: 14px;
+  font-weight: 500;
+
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  transform: translateZ(30px);
+
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.55),
+    inset 0 2px 3px rgba(255, 255, 255, 0.06),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.6);
+
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+/* ===============================
+   HOVER – FLOAT EFFECT
+=============================== */
+.filter-bar select:hover,
+.filter-bar input[type="date"]:hover {
+  transform: translateZ(45px);
+  box-shadow: 0 16px 26px rgba(0, 0, 0, 0.7),
+    inset 0 2px 3px rgba(255, 255, 255, 0.08);
+}
+
+/* ===============================
+   FOCUS – PRESSED BUT GLOWING
+=============================== */
+.filter-bar select:focus,
+.filter-bar input[type="date"]:focus {
+  transform: translateZ(20px);
+
+  border-color: #38bdf8;
+
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.65),
+    inset 0 0 0 1px rgba(56, 189, 248, 0.35),
+    inset 0 2px 3px rgba(255, 255, 255, 0.05);
+}
+
+/* ===============================
+   OPTIONS
+=============================== */
+.filter-bar option {
+  background: #020617;
+  color: #f9fafb;
+}
+
+/* ===============================
+   RESPONSIVE
+=============================== */
+@media (max-width: 768px) {
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-bar select,
+  .filter-bar input[type="date"] {
+    width: 100%;
+    min-width: unset;
+  }
+}
+
+@media (max-width: 480px) {
+  .ticket-log {
+    padding: 16px;
+  }
+
+  .ticket-title {
+    font-size: 16px;
+  }
+}

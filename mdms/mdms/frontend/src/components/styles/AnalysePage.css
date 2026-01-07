@@ -1,0 +1,192 @@
+/* ================= THEME ================= */
+:root {
+  --bg-main: #020617;
+  --glass-bg: rgba(15, 23, 42, 0.9);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --accent: #38bdf8;
+  --accent-2: #6366f1;
+  --success: #22c55e;
+  --text-main: #e5e7eb;
+  --text-muted: #94a3b8;
+}
+
+/* ================= PAGE (NO PAGE SCROLL) ================= */
+.analyze-container {
+  height: 100%;                 /* ❗ not min-height */
+  padding: 32px 40px;
+  box-sizing: border-box;
+
+  background-image: url("../../assets/images/analyse-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: var(--text-main);
+  font-family: "Inter", system-ui, sans-serif;
+
+  overflow: hidden;             /* 🚫 stop page scroll */
+  position: relative;
+}
+
+/* ================= HEADER ================= */
+.analyze-title {
+  font-size: 30px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.analyze-subtitle {
+  margin-top: 6px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 30px;
+}
+
+/* ================= TABLE WRAPPER (NO SCROLL DEFAULT) ================= */
+.table-wrapper {
+  border-radius: 22px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-border);
+
+  /* reduced shadow */
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+
+  height: auto;
+  max-height: none;
+  overflow: visible;
+}
+
+/* ================= AUTO SCROLL ONLY WHEN DATA GROWS ================= */
+.table-wrapper:has(tbody tr:nth-child(6)) {
+  max-height: calc(100vh - 320px); /* header + padding space */
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+/* Scrollbar */
+.table-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  border-radius: 10px;
+}
+
+/* ================= TABLE ================= */
+.analyze-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+.analyze-table thead {
+  background: rgba(30, 41, 59, 0.9);
+}
+
+.analyze-table th {
+  padding: 18px 20px;
+  font-size: 13px;
+  color: #c7d2fe;
+  text-align: left;
+}
+
+.analyze-table td {
+  padding: 18px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  vertical-align: top;
+}
+
+/* ================= MEDIA ================= */
+.preview-img,
+.preview-video {
+  width: 180px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin: 0 auto;
+}
+
+/* ================= DETAILS ================= */
+.details-box {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 1fr));
+  gap: 12px 20px;
+  font-size: 14px;
+}
+
+.details-box div {
+  background: rgba(2, 6, 23, 0.85);
+  padding: 10px 14px;
+  border-radius: 12px;
+}
+
+/* ================= SUBMIT ================= */
+.submit-section {
+  width: 100%;
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+}
+
+.submit-btn {
+  min-width: 160px;
+  padding: 14px 48px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  color: #020617;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 10px 22px rgba(56, 189, 248, 0.3);
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .analyze-container {
+    padding: 24px;
+  }
+
+  .table-wrapper:has(tbody tr:nth-child(5)) {
+    max-height: calc(100vh - 300px);
+  }
+}
+
+/* Phones */
+@media (max-width: 768px) {
+  .analyze-container {
+    padding: 16px 12px;
+  }
+
+  .analyze-table {
+    min-width: 720px;
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-wrapper:has(tbody tr:nth-child(4)) {
+    max-height: calc(100vh - 260px);
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .analyze-table {
+    min-width: 680px;
+  }
+
+  .table-wrapper:has(tbody tr:nth-child(3)) {
+    max-height: calc(100vh - 240px);
+  }
+}
+
+/* ================= GLOBAL SAFETY ================= */
+body {
+  overflow-x: hidden;
+}
